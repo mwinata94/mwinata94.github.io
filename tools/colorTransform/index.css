@@ -1,0 +1,78 @@
+html, body {
+	font-family: "chaparral-pro", sans-serif;
+}
+
+img.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background: #4ECDC4;
+	background: -webkit-linear-gradient(to top, #556270, #4ECDC4) repeat scroll 0% 0%;
+	background: linear-gradient(to top, #556270, #4ECDC4) repeat scroll 0% 0%;
+}
+
+#navbar {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width:100%;
+	overflow: auto;
+	background: #000000;
+	background: -webkit-linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+	background: linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+}
+
+#navbar .head_wolist,
+#navbar .head_wlist {
+	color: #F9F9F9;
+	cursor: pointer;
+	display: block;
+	float:right;
+	margin:0;
+	padding: 5px;
+	list-style-type:none;
+	z-index: 1;
+}
+
+#navbar .head_wolist:hover,
+#navbar .head_wlist:hover,
+#navbar .head_wlist:focus {
+	color: #2A2A2A;
+	background: #939393;
+	text-decoration: none;
+}
+
+#navbar .list {
+	color: #F9F9F9;
+	display: none;
+	padding: 5px;
+	position: fixed;
+	overflow: auto;
+	text-decoration: none;
+	background: #000000;
+	background: -webkit-linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+	background: linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+}
+
+#navbar .list:hover,
+#navbar .list:focus {
+	color: #2A2A2A;
+	background: #939393;
+}
+
+#navbar .list.show {
+	display: block;
+}
+
+#ct_context {
+	position: absolute;
+	top:25%;
+	left:25%;
+}
+
+#ct_rect {
+	height:100px;
+	width:100px;
+}
