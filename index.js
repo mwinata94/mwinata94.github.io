@@ -9,15 +9,15 @@ $(document).ready(function() {
         $(".menu").toggleClass("active"); 
     });
 
-    $(".fa-github").click(function() {
+    $(".fa-github").parent().click(function() {
         window.location.href = 'https://github.com/mwinata94';
     });
 
-    $(".fa-linkedin").click(function() {
+    $(".fa-linkedin").parent().click(function() {
        window.location.href = 'https://www.linkedin.com/in/michael-winata/'; 
     });
 
-    $(".fa-list").click(function() {
+    $(".fa-list").parent().click(function() {
     	$(".menu").toggleClass("active");
     	$(".menu .btn")[1].classList.toggle("shift-top-right");
     	$(".menu .btn .fa")[1].classList.toggle("fa-list");
@@ -26,7 +26,7 @@ $(document).ready(function() {
     	$("#currentContext").toggle();
     });
 
-    $(".fa-info").click(function() {
+    $(".fa-info").parent().click(function() {
     	$(".menu").toggleClass("active");
     	$(".menu .btn")[2].classList.toggle("shift-top-right");
     	$(".menu .btn .fa")[2].classList.toggle("fa-info");
@@ -35,7 +35,7 @@ $(document).ready(function() {
     	$("#aboutContext").toggle();
     });
 
-    $(".fa-bug").click(function() {
+    $(".fa-bug").parent().click(function() {
         $(".menu").toggleClass("active");
     	$(".menu .btn")[3].classList.toggle("shift-top-right");
     	$(".menu .btn .fa")[3].classList.toggle("fa-bug");
@@ -44,7 +44,7 @@ $(document).ready(function() {
         $("#reportContext").toggle();
     });
 
-    $(".fa-question").click(function() {
+    $(".fa-question").parent().click(function() {
     	$(".menu").toggleClass("active");
     	$(".menu .btn")[4].classList.toggle("shift-top-right");
     	$(".menu .btn .fa")[4].classList.toggle("fa-question");
