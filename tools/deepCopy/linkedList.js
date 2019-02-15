@@ -19,6 +19,8 @@ function copy(headNode) {
   while(null !== copyIndexNode.next) {
     indexNode.next = copyIndexNode.next;
     copyIndexNode.next = indexNode.next.next;
+    indexNode = indexNode.next;
+    copyIndexNode = copyIndexNode.next;
   }
   return copyHeadNode;
 }
