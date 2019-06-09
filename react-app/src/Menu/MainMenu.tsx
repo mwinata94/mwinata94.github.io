@@ -4,6 +4,12 @@ import { Menu } from './Menu';
 import { CSSProperties } from 'react';
 
 export class MainMenu extends Menu implements IMenu {
+  getBackground(opacity: number): string {
+    return `rgba(50, 205, 50, ${opacity})`;
+  }
+  getColor(opacity: number): string {
+    return `rgba(255, 255, 255, ${opacity})`;
+  }
   getIconFaName = (): string => 'fa fa-power-off';
   getContext(): IContext {
     throw new Error('Method not implemented.');
@@ -17,8 +23,8 @@ export class MainMenu extends Menu implements IMenu {
   getStyleShow(): CSSProperties {
     return {
       opacity: 1,
-      background: 'rgba(50, 205, 50, 0.6)',
-      color: 'rgba(255, 255, 255, 0.6)',
+      background: this.getBackground(0.6),
+      color: this.getColor(0.6),
       transition: 'background 0.3s, color 0.3s, transform 0.3s'
     };
   }

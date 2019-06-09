@@ -2,6 +2,8 @@ import { IContext } from './Context';
 import { CSSProperties } from 'react';
 
 export interface IMenu {
+  getBackground(opacity: number): string;
+  getColor(opacity: number): string;
   getIconFaName(): string;
   getContext(): IContext;
   getStyleActivate(): CSSProperties;

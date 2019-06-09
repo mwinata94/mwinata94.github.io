@@ -15,6 +15,8 @@ const GenericMenuCSS: CSSProperties = {
 
 export abstract class Menu extends React.Component<IMenuProps, IMenuState>
   implements IMenu {
+  abstract getBackground(opacity: number): string;
+  abstract getColor(opacity: number): string;
   abstract getIconFaName(): string;
   abstract getContext(): IContext;
   abstract getStyleActivate(): CSSProperties;
@@ -30,16 +32,16 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
 
   onMouseEnter = (_: any): void => {
     let newStyle: CSSProperties = { ...this.state.style };
-    newStyle.background = 'rgba(50, 205, 50, 1.0)';
-    newStyle.color = 'rgba(255, 255, 255, 1.0)';
+    newStyle.background = this.getBackground(1.0);
+    newStyle.color = this.getColor(1.0);
     newStyle.transform = 'scale(1.2)';
     this.updateStyle(newStyle);
   };
 
   onMouseLeave = (_: any): void => {
     let newStyle: CSSProperties = { ...this.state.style };
-    newStyle.background = 'rgba(50, 205, 50, 0.6)';
-    newStyle.color = 'rgba(255, 255, 255, 0.6)';
+    newStyle.background = this.getBackground(0.6);
+    newStyle.color = this.getColor(0.6);
     newStyle.transform = 'scale(1.0)';
     this.updateStyle(newStyle);
   };
