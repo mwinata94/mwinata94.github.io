@@ -12,7 +12,7 @@ export class MainMenu extends Menu implements IMenu {
     this.setState({ styleBackground: '220, 20, 60' }, () =>
       this.updateStyle({
         background: this.getBackground(),
-        transform: this.state.hover ? 'scale(1.2)' : 'scale(1.0)'
+        transform: this.getTransform()
       })
     );
   };
@@ -20,7 +20,7 @@ export class MainMenu extends Menu implements IMenu {
     this.setState({ styleBackground: '50, 205, 50' }, () =>
       this.updateStyle({
         background: this.getBackground(),
-        transform: this.state.hover ? 'scale(1.2)' : 'scale(1.0)'
+        transform: this.getTransform()
       })
     );
   };
@@ -30,14 +30,14 @@ export class MainMenu extends Menu implements IMenu {
         opacity: 1,
         background: this.getBackground(),
         color: this.getColor(),
-        transform: this.state.hover ? 'scale(1.2)' : 'scale(1.0)'
+        transform: this.getTransform()
       })
     );
   };
   setStyleHide = (): void => {
     this.updateStyle({
       opacity: 0,
-      transform: this.state.hover ? 'scale(1.2)' : 'scale(1.0)'
+      transform: this.getTransform()
     });
   };
 }

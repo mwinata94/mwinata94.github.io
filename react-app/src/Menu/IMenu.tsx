@@ -4,6 +4,7 @@ import { CSSProperties } from 'react';
 export interface IMenu {
   getBackground: () => string;
   getColor: () => string;
+  getTransform: () => string;
   getIconFaName: () => string;
   getContext: () => IContext;
   setStyleActivate: () => void;

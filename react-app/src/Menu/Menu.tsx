@@ -33,6 +33,8 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
     return `rgba(255, 255, 255, ${this.state.hover ? 1.0 : 0.6})`;
   };
 
+  getTransform = (): string => (this.state.hover ? 'scale(1.2)' : 'scale(1.0)');
+
   updateStyle = (newStyle: CSSProperties): void =>
     this.setState({
       style: { ...GenericMenuCSS, ...newStyle }
