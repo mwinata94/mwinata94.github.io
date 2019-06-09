@@ -2,19 +2,20 @@ import { IContext } from './Context';
 import { CSSProperties } from 'react';
 
 export interface IMenu {
-  getBackground(opacity: number): string;
-  getColor(opacity: number): string;
-  getIconFaName(): string;
-  getContext(): IContext;
-  getStyleActivate(): CSSProperties;
-  getStyleDeactivate(): CSSProperties;
-  getStyleShow(): CSSProperties;
-  getStyleHide(): CSSProperties;
-  onClick(): void;
-  activate(): void;
-  deactivate(): void;
-  show(): void;
-  hide(): void;
+  getBackground: () => string;
+  getColor: () => string;
+  getIconFaName: () => string;
+  getContext: () => IContext;
+  setStyleActivate: () => void;
+  setStyleDeactivate: () => void;
+  setStyleShow: () => void;
+  setStyleHide: () => void;
+  updateStyle: (newStyle: CSSProperties) => void;
+  onClick: () => void;
+  activate: () => void;
+  deactivate: () => void;
+  show: () => void;
+  hide: () => void;
 }
 
 export interface IMenuProps {
@@ -23,5 +24,7 @@ export interface IMenuProps {
 
 export interface IMenuState {
   activate: boolean;
+  hover: boolean;
   style: CSSProperties;
+  styleBackground: string;
 }
