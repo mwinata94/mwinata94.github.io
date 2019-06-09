@@ -2,6 +2,17 @@ import { IContext } from './Context';
 import React, { CSSProperties } from 'react';
 import { IMenu, IMenuProps, IMenuState } from './IMenu';
 
+const GenericMenuCSS: CSSProperties = {
+  borderRadius: '50%',
+  width: '1.75em',
+  height: '1.75em',
+  fontSize: '3em',
+  cursor: 'pointer',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center'
+};
+
 export abstract class Menu extends React.Component<IMenuProps, IMenuState>
   implements IMenu {
   abstract getIconFaName(): string;
@@ -12,12 +23,17 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
   abstract getStyleHide(): CSSProperties;
   abstract onClick(): void;
 
+  updateStyle = (newStyle: CSSProperties): void =>
+    this.setState({
+      style: { ...GenericMenuCSS, ...newStyle }
+    });
+
   onMouseEnter = (_: any): void => {
     let newStyle: CSSProperties = { ...this.state.style };
     newStyle.background = 'rgba(50, 205, 50, 1.0)';
     newStyle.color = 'rgba(255, 255, 255, 1.0)';
     newStyle.transform = 'scale(1.2)';
-    this.setState({ style: newStyle });
+    this.updateStyle(newStyle);
   };
 
   onMouseLeave = (_: any): void => {
@@ -25,36 +41,30 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
     newStyle.background = 'rgba(50, 205, 50, 0.6)';
     newStyle.color = 'rgba(255, 255, 255, 0.6)';
     newStyle.transform = 'scale(1.0)';
-    this.setState({ style: newStyle });
+    this.updateStyle(newStyle);
   };
 
   activate = (): void => {
-    this.setState({
-      style: this.getStyleActivate()
-    });
+    this.updateStyle(this.getStyleActivate());
   };
 
   deactivate = (): void => {
-    this.setState({
-      style: this.getStyleDeactivate()
-    });
+    this.updateStyle(this.getStyleDeactivate());
   };
 
   show = (): void => {
-    this.setState({
-      style: this.getStyleShow()
-    });
+    this.updateStyle(this.getStyleShow());
   };
 
   hide = (): void => {
-    this.setState({
-      style: this.getStyleHide()
-    });
+    this.updateStyle(this.getStyleHide());
   };
 
   state = {
     activate: false,
-    style: this.props.show ? this.getStyleShow() : this.getStyleHide()
+    style: this.props.show
+      ? { ...GenericMenuCSS, ...this.getStyleShow() }
+      : { ...GenericMenuCSS, ...this.getStyleHide() }
   };
 
   render = () => (
@@ -62,6 +72,7 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
       <div
         className='btn'
         style={this.state.style}
+        onClick={this.onClick}
         onMouseEnter={this.onMouseEnter}
         onMouseLeave={this.onMouseLeave}
       >

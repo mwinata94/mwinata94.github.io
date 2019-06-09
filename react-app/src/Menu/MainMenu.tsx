@@ -16,21 +16,16 @@ export class MainMenu extends Menu implements IMenu {
   }
   getStyleShow(): CSSProperties {
     return {
-      borderRadius: '50%',
-      width: '1.75em',
-      height: '1.75em',
-      fontSize: '3em',
-      cursor: 'pointer',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      opacity: 1,
       background: 'rgba(50, 205, 50, 0.6)',
       color: 'rgba(255, 255, 255, 0.6)',
       transition: 'background 0.3s, color 0.3s, transform 0.3s'
     };
   }
   getStyleHide(): CSSProperties {
-    throw new Error('Method not implemented.');
+    return {
+      opacity: 0
+    };
   }
   onClick = (): void => {
     if (this.state.activate) {
