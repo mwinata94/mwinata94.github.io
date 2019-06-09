@@ -1,12 +1,13 @@
-import { ICSSProperties } from './ICSSProperties';
+import { IContext } from './Context';
+import { CSSProperties } from 'react';
 
 export interface IMenu {
   getIconFaName(): string;
-  getContext(): import('./Context').IContext;
-  getStyleActivate(): ICSSProperties;
-  getStyleDeactivate(): ICSSProperties;
-  getStyleShow(): ICSSProperties;
-  getStyleHide(): ICSSProperties;
+  getContext(): IContext;
+  getStyleActivate(): CSSProperties;
+  getStyleDeactivate(): CSSProperties;
+  getStyleShow(): CSSProperties;
+  getStyleHide(): CSSProperties;
   onClick(): void;
   activate(): void;
   deactivate(): void;
@@ -20,5 +21,5 @@ export interface IMenuProps {
 
 export interface IMenuState {
   activate: boolean;
-  style: ICSSProperties;
+  style: CSSProperties;
 }
