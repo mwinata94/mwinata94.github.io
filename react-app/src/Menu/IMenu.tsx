@@ -4,13 +4,13 @@ import { CSSProperties } from 'react';
 export interface IMenu {
   getBackground: () => string;
   getColor: () => string;
-  getTransform: () => string;
+  getTransform: (props: IMenuProps) => string;
   getIconFaName: () => string;
   getContext: () => IContext;
-  setStyleActivate: () => void;
-  setStyleDeactivate: () => void;
-  setStyleShow: () => void;
-  setStyleHide: () => void;
+  setStyleActivate: (props: IMenuProps) => void;
+  setStyleDeactivate: (props: IMenuProps) => void;
+  setStyleShow: (props: IMenuProps) => void;
+  setStyleHide: (props: IMenuProps) => void;
   updateStyle: (newStyle: CSSProperties) => void;
   onClick: () => void;
   activate: () => void;
@@ -21,6 +21,10 @@ export interface IMenu {
 
 export interface IMenuProps {
   show: boolean;
+  onMainMenuActivate?: Function;
+  onMainMenuDeactivate?: Function;
+  onSubMenuActivate?: Function;
+  onSubMenuDeactivate?: Function;
 }
 
 export interface IMenuState {
