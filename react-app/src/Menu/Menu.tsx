@@ -5,9 +5,9 @@ import { IMenu, IMenuProps, IMenuState } from './IMenu';
 const GenericMenuCSS: CSSProperties = {
   position: 'absolute',
   borderRadius: '50%',
-  width: '1.75em',
-  height: '1.75em',
-  fontSize: '3em',
+  width: '5vw',
+  height: '5vw',
+  fontSize: '3vw',
   cursor: 'pointer',
   display: 'flex',
   alignItems: 'center',
