@@ -4,6 +4,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 import { IAppProps } from './IAppProps';
 import { IAppState } from './IAppState';
 import { MainMenu } from './Menu/MainMenu';
+import { BugMenu } from './Menu/BugMenu';
 import { GithubMenu } from './Menu/GithubMenu';
 
 class App extends React.Component<IAppProps, IAppState> {
@@ -66,11 +67,14 @@ class App extends React.Component<IAppProps, IAppState> {
           onMainMenuActivate={this.onMainMenuActivate}
           onMainMenuDeactivate={this.onMainMenuDeactivate}
         />
-        <GithubMenu
-          show={'' === this.state.activeSubMenu && this.state.activeMainMenu}
-          onSubMenuActivate={this.onSubMenuActivate}
-          onSubMenuDeactivate={this.onSubMenuDeactivate}
-        />
+        {[GithubMenu, BugMenu].map((MenuClass, i: number) => (
+          <MenuClass
+            key={i}
+            show={'' === this.state.activeSubMenu && this.state.activeMainMenu}
+            onSubMenuActivate={this.onSubMenuActivate}
+            onSubMenuDeactivate={this.onSubMenuDeactivate}
+          />
+        ))}
       </div>
     );
   };
