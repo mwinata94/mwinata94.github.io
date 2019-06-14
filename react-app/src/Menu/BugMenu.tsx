@@ -5,7 +5,6 @@ import React from 'react';
 
 export class BugMenu extends Menu implements IMenu {
   componentWillReceiveProps = (newProps: IMenuProps): void => {
-    console.log(newProps.hide);
     if (this.state.hidden !== newProps.hide) {
       this.setState(
         {
