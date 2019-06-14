@@ -1,0 +1,75 @@
+.flex-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  position: absolute;
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+  font-size: 3vw;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  transition: background 0.3s, color 0.3s, opacity 0.6s, transform 1s;
+}
+
+.hide {
+  opacity: 0;
+}
+
+.menu:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: scale(1.2);
+  transition: background 0.3s, color 0.3s, opacity 0.6s, transform 0.3s;
+}
+
+.menu.main {
+  z-index: 500;
+  background: rgba(50, 205, 50, 0.6);
+}
+
+.menu.main:hover {
+  background: rgba(50, 205, 50, 1);
+}
+
+.menu.main.activated {
+  background: rgba(220, 20, 60, 0.6);
+}
+
+.menu.main.activated:hover {
+  background: rgba(220, 20, 60, 1);
+}
+
+.menu.github {
+  z-index: 50;
+  color: rgba(0, 0, 0, 0.6);
+  transform: translateX(-20vw) rotate(0deg);
+}
+
+.menu.github:hover {
+  color: rgba(0, 0, 0, 1);
+}
+
+.menu.github.hide {
+  transform: translateX(0vw) rotate(-180deg);
+}
+
+.menu.bug {
+  z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  color: rgba(164, 198, 57, 0.6);
+  transform: translateX(20vw) rotate(0deg);
+}
+
+.menu.bug:hover {
+  background: rgba(255, 255, 255, 1);
+  color: rgba(164, 198, 57, 1);
+}
+
+.menu.bug.hide {
+  transform: translateX(0vw) rotate(180deg);
+}

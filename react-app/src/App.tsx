@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bulma/css/bulma.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import './style.css';
 import { IAppProps } from './IAppProps';
 import { IAppState } from './IAppState';
 import { MainMenu } from './Menu/MainMenu';
@@ -53,23 +54,16 @@ class App extends React.Component<IAppProps, IAppState> {
 
   render = () => {
     return (
-      <div
-        className='App hero is-fullheight is-dark'
-        style={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center'
-        }}
-      >
+      <div className='App hero is-fullheight is-dark flex-center-content'>
         <MainMenu
-          show={'' === this.state.activeSubMenu}
+          hide={'' !== this.state.activeSubMenu}
           onMainMenuActivate={this.onMainMenuActivate}
           onMainMenuDeactivate={this.onMainMenuDeactivate}
         />
-        {[GithubMenu, BugMenu].map((MenuClass, i: number) => (
-          <MenuClass
+        {[GithubMenu, BugMenu].map((SubMenuClass, i: number) => (
+          <SubMenuClass
             key={i}
-            show={'' === this.state.activeSubMenu && this.state.activeMainMenu}
+            hide={!this.state.activeMainMenu}
             onSubMenuActivate={this.onSubMenuActivate}
             onSubMenuDeactivate={this.onSubMenuDeactivate}
           />

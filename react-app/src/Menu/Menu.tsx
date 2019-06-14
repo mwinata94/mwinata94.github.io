@@ -1,106 +1,61 @@
 import { IContext } from './Context';
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { IMenu, IMenuProps, IMenuState } from './IMenu';
-
-const GenericMenuCSS: CSSProperties = {
-  position: 'absolute',
-  borderRadius: '50%',
-  width: '5vw',
-  height: '5vw',
-  fontSize: '3vw',
-  cursor: 'pointer',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  transition: 'background 0.3s, color 0.3s, opacity 0.6s, transform 1s'
-};
 
 export abstract class Menu extends React.Component<IMenuProps, IMenuState>
   implements IMenu {
   abstract getIconFaName: () => string;
   abstract getContext: () => IContext;
-  abstract setStyleActivate: (props: IMenuProps) => void;
-  abstract setStyleDeactivate: (props: IMenuProps) => void;
-  abstract setStyleShow: (props: IMenuProps) => void;
-  abstract setStyleHide: (props: IMenuProps) => void;
+  abstract getMenuName: () => string;
   abstract onClick: () => void;
 
-  getBackground = (): string => {
-    return `rgba(${this.state.styleBackground}, ${
-      this.state.hover ? 1.0 : 0.6
-    })`;
-  };
-
-  getColor = (): string => {
-    return `rgba(255, 255, 255, ${this.state.hover ? 1.0 : 0.6})`;
-  };
-
-  getTransform = (_: IMenuProps): string =>
-    this.state.hover ? 'scale(1.2)' : 'scale(1.0)';
-
-  updateStyle = (newStyle: CSSProperties): void =>
+  toggleClassName = (className: string) => {
+    let classList: string[] = this.state.className.split(' ');
+    let index: number = classList.indexOf(className);
+    if (-1 === index) {
+      classList.push(className);
+    } else {
+      classList.splice(index, 1);
+    }
     this.setState({
-      style: { ...GenericMenuCSS, ...newStyle }
+      className: classList.join(' ')
     });
-
-  onMouseEvent = (): void => {
-    let newStyle: CSSProperties = { ...this.state.style };
-    newStyle.background = this.getBackground();
-    newStyle.color = this.getColor();
-    newStyle.transform = this.getTransform(this.props);
-    newStyle.transition = `background 0.3s, color 0.3s, opacity 0.6s, transform ${
-      this.state.hover ? 0.3 : 1
-    }s`;
-    this.updateStyle(newStyle);
   };
 
-  activate = (): void => {
-    this.setState({ activate: true }, () => this.setStyleActivate(this.props));
+  toggleClassActivated = (): void => {
+    this.toggleClassName('activated');
   };
 
-  deactivate = (): void => {
-    this.setState({ activate: false }, () =>
-      this.setStyleDeactivate(this.props)
-    );
-  };
-
-  show = (): void => {
-    this.setStyleShow(this.props);
-  };
-
-  hide = (): void => {
-    this.setStyleHide(this.props);
+  toggleClassHide = (): void => {
+    this.toggleClassName('hide');
   };
 
   state = {
-    activate: false,
-    hover: false,
-    style: {},
-    styleBackground: '255,255,255'
+    className: 'flex-center-content menu',
+    activated: false,
+    hidden: this.props.hide
   };
 
   componentDidMount = () => {
-    this.props.show ? this.show() : this.hide();
+    let className: string = this.state.className;
+    this.setState(
+      {
+        className: className + ' ' + this.getMenuName()
+      },
+      () => {
+        this.props.hide && this.toggleClassHide();
+      }
+    );
   };
 
   render = () => (
     <>
       {
         <>
-          <div
-            className='btn'
-            style={this.state.style}
-            onClick={this.onClick}
-            onMouseEnter={_ =>
-              this.setState({ hover: true }, this.onMouseEvent)
-            }
-            onMouseLeave={_ =>
-              this.setState({ hover: false }, this.onMouseEvent)
-            }
-          >
+          <div className={this.state.className} onClick={this.onClick}>
             <i className={this.getIconFaName()} />
           </div>
-          {this.state.activate && this.getContext()()}
+          {this.state.activated && !this.state.hidden && this.getContext()()}
         </>
       }
     </>
