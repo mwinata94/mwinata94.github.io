@@ -52,7 +52,6 @@ class App extends React.Component<IAppProps, IAppState> {
   };
 
   render = () => {
-    console.log('' === this.state.activeSubMenu && this.state.activeMainMenu);
     return (
       <div
         className='App hero is-fullheight is-dark'
