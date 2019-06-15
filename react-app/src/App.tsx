@@ -62,7 +62,12 @@ class App extends React.Component<IAppProps, IAppState> {
         {SubMenuArray.map((SubMenuClass, i: number) => (
           <SubMenuClass
             key={i}
-            hide={!this.state.activeMainMenu}
+            hide={
+              !this.state.activeMainMenu ||
+              ('' !== this.state.activeSubMenu &&
+                new SubMenuClass({ hide: true }, null).getMenuName() !==
+                  this.state.activeSubMenu)
+            }
             onSubMenuActivate={this.onSubMenuActivate}
             onSubMenuDeactivate={this.onSubMenuDeactivate}
           />
