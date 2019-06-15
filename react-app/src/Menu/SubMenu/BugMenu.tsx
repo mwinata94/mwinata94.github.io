@@ -1,24 +1,11 @@
 import { IContext } from '../Context';
-import { IMenu, IMenuProps } from '../IMenu';
-import { Menu } from '../Menu';
+import { SubMenu } from './SubMenu';
 import React from 'react';
 
-export class BugMenu extends Menu implements IMenu {
-  componentWillReceiveProps = (newProps: IMenuProps): void => {
-    if (this.state.hidden !== newProps.hide) {
-      this.setState(
-        {
-          hidden: newProps.hide
-        },
-        () => this.toggleClassHide()
-      );
-    }
-  };
-
+export class BugMenu extends SubMenu {
   getIconFaName = (): string => 'fa fa-bug';
   getContext = (): IContext => (): JSX.Element => <></>;
   getMenuName = (): string => 'bug';
-
   onClick = (): void => {
     // to do
   };
