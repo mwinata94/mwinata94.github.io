@@ -1,29 +1,108 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>color transform</title>
-		<link rel="stylesheet" href="index.css" type="text/css">
-		<script
-			  src="https://code.jquery.com/jquery-3.2.1.min.js"
-			  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-			  crossorigin="anonymous"></script>
-	</head>
-	<body>
-		<img class="bg"></img>
-		<div id="navbar">
-			<ul class="head_wolist">
-				<span>MW94</span>
-			</ul>
-		</div>
-		<table id="ct_context">
-				<tr><td align="center"><div id="ct_rect"></div></td>
-					<td><button id="ct_getJS">Get js</button></td>
-				</tr>
-				<tr><td colspan="2"><span id = "ct_script">colorTransform(document.getElementById("rect"), "backgroundColor", "#7CFC00", "#FF0000", 16);</span></td></tr>
-		</table>
-		<script src= "colorTransform.js"></script>
-		<script src="index.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>color transform</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="index.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="hero is-fullheight is-dark flex-center-content">
+      <div class="card border-radius-8 mb-8 min-width-60 max-width-60">
+        <header class="card-header">
+          <p class="card-header-title">Usage</p>
+        </header>
+        <div class="card-content">
+          <p class="is-family-code">
+            var interval = colorTransform(document.getElementById("rect"),
+            "backgroundColor", "#7CFC00", "#FF0000", 16);
+          </p>
+          <p>note:</p>
+          <p>you need to call</p>
+          <p class="is-family-code">clearInterval(interval);</p>
+          <p>if you want to change the color transform</p>
+        </div>
+      </div>
+      <div class="card border-radius-8 min-width-60 max-width-60">
+        <header class="card-header">
+          <p class="card-header-title">Try it</p>
+        </header>
+        <div class="columns">
+          <div class="column flex-center-content">
+            <div id="ct_rect">Test</div>
+          </div>
+          <div class="column mt-8">
+            <div class="columns">
+              <div class="column is-3">property:</div>
+              <div class="column">
+                <input
+                  id="property-sample"
+                  class="input"
+                  type="text"
+                  value="backgroundColor"
+                />
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-3">color A:</div>
+              <div class="column">
+                <input
+                  id="color-sample-a"
+                  class="input"
+                  type="text"
+                  value="#7CFC00"
+                />
+              </div>
+              <div class="column">
+                <div id="color-sample-a-display"></div>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-3">color B:</div>
+              <div class="column">
+                <input
+                  id="color-sample-b"
+                  class="input"
+                  type="text"
+                  value="#FF0000"
+                />
+              </div>
+              <div class="column">
+                <div id="color-sample-b-display"></div>
+              </div>
+            </div>
+            <div class="columns">
+              <div class="column is-3">frame:</div>
+              <div class="column">
+                <input
+                  id="frame-sample"
+                  class="input"
+                  type="number"
+                  value="16"
+                  min="1"
+                />
+              </div>
+            </div>
+            <a id="apply" class="button is-fullwidth mb-8 is-info">apply</a>
+          </div>
+          <div class="column is-3 flex-center-content">
+            <a class="button is-warning" href="./colorTransform.js">Get code</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="colorTransform.js"></script>
+    <script src="index.js"></script>
+  </body>
 </html>

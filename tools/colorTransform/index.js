@@ -1,17 +1,44 @@
-$(document).ready(function() {
+$(document).ready(() => {
+  /* Default Values */
+  $('#property-sample').val('backgroundColor');
+  $('#color-sample-a').val('#7CFC00');
+  $('#color-sample-b').val('#FF0000');
+  $('#frame-sample').val(16);
+  document.getElementById('color-sample-a-display').style.backgroundColor = $(
+    '#color-sample-a'
+  ).val();
+  document.getElementById('color-sample-b-display').style.backgroundColor = $(
+    '#color-sample-b'
+  ).val();
 
-	// Toggle dropdown
-	$("#navbar .head_wolist").click(function() {
-		var t = $(this).find("span").text();
-		if (t == "MW94") {
-			window.location.href = "../../index.html";
-		}
-	});
+  var interval = colorTransform(
+    document.getElementById('ct_rect'),
+    $('#property-sample').val(),
+    $('#color-sample-a').val(),
+    $('#color-sample-b').val(),
+    $('#frame-sample').val()
+  );
 
-	$("#ct_getJS").click(function() {
-		window.location.href = "././colorTransform.js";
-	});
+  $('#apply').click(() => {
+    clearInterval(interval);
+    interval = colorTransform(
+      document.getElementById('ct_rect'),
+      $('#property-sample').val(),
+      $('#color-sample-a').val(),
+      $('#color-sample-b').val(),
+      $('#frame-sample').val()
+    );
+  });
 
-	colorTransform(document.getElementById("ct_rect"), "backgroundColor", "#7CFC00", "#FF0000", 16);
+  $('#color-sample-a').bind('input propertychange', () => {
+    document.getElementById('color-sample-a-display').style.backgroundColor = $(
+      '#color-sample-a'
+    ).val();
+  });
 
+  $('#color-sample-b').bind('input propertychange', () => {
+    document.getElementById('color-sample-b-display').style.backgroundColor = $(
+      '#color-sample-b'
+    ).val();
+  });
 });

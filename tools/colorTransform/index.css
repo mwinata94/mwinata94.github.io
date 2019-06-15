@@ -1,78 +1,45 @@
-html, body {
-	font-family: "chaparral-pro", sans-serif;
-	background: black;
+html {
+  overflow: hidden;
+  font-family: 'chaparral-pro', sans-serif;
 }
 
-img.bg {
-	position: fixed;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	background: black;
+.flex-center-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-#navbar {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width:100%;
-	overflow: auto;
-	background: #000000;
-	background: -webkit-linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
-	background: linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+.border-radius-8 {
+  border-radius: 8px;
 }
 
-#navbar .head_wolist,
-#navbar .head_wlist {
-	color: #F9F9F9;
-	cursor: pointer;
-	display: block;
-	float:right;
-	margin:0;
-	padding: 5px;
-	list-style-type:none;
-	z-index: 1;
+.min-width-60 {
+  min-width: 60vw;
 }
 
-#navbar .head_wolist:hover,
-#navbar .head_wlist:hover,
-#navbar .head_wlist:focus {
-	color: #2A2A2A;
-	background: #939393;
-	text-decoration: none;
+.max-width-60 {
+  max-width: 60vw;
 }
 
-#navbar .list {
-	color: #F9F9F9;
-	display: none;
-	padding: 5px;
-	position: fixed;
-	overflow: auto;
-	text-decoration: none;
-	background: #000000;
-	background: -webkit-linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
-	background: linear-gradient(to bottom, #434343, #000000) repeat scroll 0% 0%;
+.mb-8 {
+  margin-bottom: 8px;
 }
 
-#navbar .list:hover,
-#navbar .list:focus {
-	color: #2A2A2A;
-	background: #939393;
-}
-
-#navbar .list.show {
-	display: block;
-}
-
-#ct_context {
-	position: absolute;
-	top:25%;
-	left:25%;
-	color: white;
+.mt-8 {
+  margin-top: 8px;
 }
 
 #ct_rect {
-	height:100px;
-	width:100px;
+  height: 100px;
+  width: 100px;
+}
+
+#color-sample-a-display {
+  height: 80%;
+  width: 80%;
+}
+
+#color-sample-b-display {
+  height: 80%;
+  width: 80%;
 }
