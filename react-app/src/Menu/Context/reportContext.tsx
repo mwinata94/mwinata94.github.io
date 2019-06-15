@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const reportContext: import('./IContext').IContext = (): JSX.Element => (
   <div id='reportContext'>
     <span className='titleContext text'>Bug Report</span>

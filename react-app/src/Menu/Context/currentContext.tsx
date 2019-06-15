@@ -1,3 +1,5 @@
+import React from 'react';
+
 export const currentContext: import('./IContext').IContext = (): JSX.Element => (
   <div id='currentContext'>
     <span className='titleContext text'>Current</span>
