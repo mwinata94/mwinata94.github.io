@@ -66,7 +66,11 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
           <div className={this.state.className} onClick={this.onClick}>
             <i className={this.getIconFaName()} />
           </div>
-          {this.state.activated && !this.state.hidden && this.getContext()()}
+          {this.getContext()(
+            this.state.activated && !this.state.hidden
+              ? 'context'
+              : 'context true-hide'
+          )}
         </>
       }
     </>

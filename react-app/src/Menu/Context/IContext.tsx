@@ -1,5 +1,5 @@
 import 'react';
 
 export interface IContext {
-  (): JSX.Element;
+  (additionalClassNames: string): JSX.Element;
 }

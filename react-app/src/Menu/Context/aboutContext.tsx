@@ -1,6 +1,8 @@
 import React from 'react';
 
-export const aboutContext: import('./IContext').IContext = (): JSX.Element => (
+export const aboutContext: import('./IContext').IContext = (
+  additionalClassNames: string
+): JSX.Element => (
   <div id='aboutContext'>
     <span className='titleContext text'>About</span>
     <br />
