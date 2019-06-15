@@ -9,7 +9,8 @@ export class BugMenu extends Menu {
     this.toggleClassActivated();
     this.state.activated
       ? this.props.onSubMenuDeactivate && this.props.onSubMenuDeactivate()
-      : this.props.onSubMenuActivate && this.props.onSubMenuActivate('bug');
+      : this.props.onSubMenuActivate &&
+        this.props.onSubMenuActivate(this.getMenuName());
     this.setState({ activated: !this.state.activated });
   };
 }
