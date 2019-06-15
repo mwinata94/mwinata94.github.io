@@ -1,9 +1,9 @@
-import { IContext, reportContext } from '../Context';
+import { IContext, bugContext } from '../Context';
 import { Menu } from '../Menu';
 
 export class BugMenu extends Menu {
   getIconFaName = (): string => 'fa fa-bug';
-  getContext = (): IContext => reportContext;
+  getContext = (): IContext => bugContext;
   getMenuName = (): string => 'bug';
   onClick = (): void => {
     this.toggleClassActivated();
