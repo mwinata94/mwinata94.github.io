@@ -1,12 +1,15 @@
-import { IContext } from '../Context';
-import { SubMenu } from './SubMenu';
-import React from 'react';
+import { IContext, reportContext } from '../Context';
+import { Menu } from '../Menu';
 
-export class BugMenu extends SubMenu {
+export class BugMenu extends Menu {
   getIconFaName = (): string => 'fa fa-bug';
-  getContext = (): IContext => (): JSX.Element => <></>;
+  getContext = (): IContext => reportContext;
   getMenuName = (): string => 'bug';
   onClick = (): void => {
-    // to do
+    this.toggleClassActivated();
+    this.state.activated
+      ? this.props.onSubMenuDeactivate && this.props.onSubMenuDeactivate()
+      : this.props.onSubMenuActivate && this.props.onSubMenuActivate('bug');
+    this.setState({ activated: !this.state.activated });
   };
 }

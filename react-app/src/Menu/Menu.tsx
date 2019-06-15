@@ -48,6 +48,17 @@ export abstract class Menu extends React.Component<IMenuProps, IMenuState>
     );
   };
 
+  componentWillReceiveProps = (newProps: IMenuProps): void => {
+    if (this.state.hidden !== newProps.hide) {
+      this.setState(
+        {
+          hidden: newProps.hide
+        },
+        () => this.toggleClassHide()
+      );
+    }
+  };
+
   render = () => (
     <>
       {
