@@ -5,8 +5,7 @@ import './style.css';
 import { IAppProps } from './IAppProps';
 import { IAppState } from './IAppState';
 import { MainMenu } from './Menu/MainMenu';
-import { BugMenu } from './Menu/BugMenu';
-import { GithubMenu } from './Menu/GithubMenu';
+import { SubMenuArray } from './Menu/SubMenu';
 
 class App extends React.Component<IAppProps, IAppState> {
   constructor(props: React.ReactPropTypes) {
@@ -60,7 +59,7 @@ class App extends React.Component<IAppProps, IAppState> {
           onMainMenuActivate={this.onMainMenuActivate}
           onMainMenuDeactivate={this.onMainMenuDeactivate}
         />
-        {[GithubMenu, BugMenu].map((SubMenuClass, i: number) => (
+        {SubMenuArray.map((SubMenuClass, i: number) => (
           <SubMenuClass
             key={i}
             hide={!this.state.activeMainMenu}

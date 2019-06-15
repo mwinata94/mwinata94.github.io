@@ -1,9 +1,9 @@
-import { IContext } from './Context';
-import { IMenu, IMenuProps } from './IMenu';
-import { Menu } from './Menu';
+import { IContext } from '../Context';
+import { IMenu, IMenuProps } from '../IMenu';
+import { Menu } from '../Menu';
 import React from 'react';
 
-export class BugMenu extends Menu implements IMenu {
+export class GithubMenu extends Menu implements IMenu {
   componentWillReceiveProps = (newProps: IMenuProps): void => {
     if (this.state.hidden !== newProps.hide) {
       this.setState(
@@ -15,11 +15,11 @@ export class BugMenu extends Menu implements IMenu {
     }
   };
 
-  getIconFaName = (): string => 'fa fa-bug';
+  getIconFaName = (): string => 'fab fa-github';
   getContext = (): IContext => (): JSX.Element => <></>;
-  getMenuName = (): string => 'bug';
+  getMenuName = (): string => 'github';
 
   onClick = (): void => {
-    // to do
+    window.location.assign('https://github.com/mwinata94');
   };
 }
