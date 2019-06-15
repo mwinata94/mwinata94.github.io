@@ -27,7 +27,7 @@
   background: rgba(255, 255, 255, 1);
   color: rgba(255, 255, 255, 1);
   transform: scale(1.2);
-  transition: background 0.3s, color 0.3s, opacity 0.6s, transform 0.3s;
+  transition: background 0.3s, color 0.3s, opacity 0.6s, transform 1s;
 }
 
 .menu:not(.main):hover {
