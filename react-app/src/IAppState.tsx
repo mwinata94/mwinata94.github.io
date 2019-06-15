@@ -2,7 +2,7 @@ export interface IAppState {
   activeMainMenu: boolean;
   activeSubMenu:
     | 'github'
-    | 'linkedIn'
+    | 'linkedin'
     | 'question'
     | 'bug'
     | 'information'

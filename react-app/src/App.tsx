@@ -33,7 +33,7 @@ class App extends React.Component<IAppProps, IAppState> {
   onSubMenuActivate = (
     activeSubMenu:
       | 'github'
-      | 'linkedIn'
+      | 'linkedin'
       | 'question'
       | 'bug'
       | 'information'
