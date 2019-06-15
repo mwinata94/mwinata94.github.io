@@ -84,7 +84,24 @@
 }
 
 .menu.github.hide {
-  transform: translateX(0vw) rotate(-180deg);
+  transform: translateX(0vw) rotate(90deg);
+}
+
+.menu.list {
+  z-index: 50;
+  background: rgba(247, 149, 55, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  transform: translateX(-14.14vw) translateY(-14.14vw) rotate(0deg);
+}
+
+.menu.list:hover {
+  background: rgba(247, 149, 55, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(-14.14vw) translateY(-14.14vw) rotate(0deg) scale(1.2);
+}
+
+.menu.list.hide {
+  transform: translateX(0vw) rotate(90deg);
 }
 
 .menu.information {
@@ -101,7 +118,7 @@
 }
 
 .menu.information.hide {
-  transform: translateX(0vw) rotate(180deg);
+  transform: translateX(0vw) rotate(90deg);
 }
 
 .menu.bug {
@@ -118,7 +135,7 @@
 }
 
 .menu.bug.hide {
-  transform: translateX(0vw) rotate(180deg);
+  transform: translateX(0vw) rotate(120deg);
 }
 
 .menu.question {
@@ -135,7 +152,7 @@
 }
 
 .menu.question.hide {
-  transform: translateX(0vw) rotate(-180deg);
+  transform: translateX(0vw) rotate(180deg);
 }
 
 .menu.linkedin {
