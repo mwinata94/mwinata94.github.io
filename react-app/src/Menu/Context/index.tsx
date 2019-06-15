@@ -1,5 +1,5 @@
 export * from './IContext';
-export * from './aboutContext';
+export * from './informationContext';
 export * from './currentContext';
 export * from './helpContext';
 export * from './bugContext';

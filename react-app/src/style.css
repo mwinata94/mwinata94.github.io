@@ -5,6 +5,7 @@
 }
 
 .context {
+  position: absolute;
   z-index: 5000;
   border-radius: 8px;
   transition: all 0.6s ease-in-out 0s;
@@ -100,5 +101,22 @@
 }
 
 .menu.bug.hide {
+  transform: translateX(0vw) rotate(180deg);
+}
+
+.menu.information {
+  z-index: 50;
+  background: rgba(32, 156, 238, 0.6);
+  color: rgba(255, 255, 255, 0.6);
+  transform: translateX(14.14vw) translateY(-14.14vw) rotate(0deg);
+}
+
+.menu.information:hover {
+  background: rgba(32, 156, 238, 1);
+  color: rgba(255, 255, 255, 1);
+  transform: translateX(14.14vw) translateY(-14.14vw) rotate(0deg) scale(1.2);
+}
+
+.menu.information.hide {
   transform: translateX(0vw) rotate(180deg);
 }
